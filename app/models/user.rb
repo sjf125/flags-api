@@ -5,7 +5,12 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: true
 
-  private
+  def self.login(email, password)
+    user = find_by email: email
+    user = user.authenticate password if user
+    user.set_token && user.save! if user
+    user.token if user
+  end
 
   def set_token
     self.token = SecureRandom.hex
