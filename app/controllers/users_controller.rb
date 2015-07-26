@@ -1,3 +1,4 @@
+#
 class UsersController < ApplicationController
   skip_before_action :authenticate, only: [:login, :create]
 
@@ -17,13 +18,17 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
-    render json: @users
+    render json: @users, each_serializer: UserSerializer
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    # render json: @user
+    if current_user.id == params[:id].to_i
+      render json: current_user, serializer: CurrentUserSerializer
+    else
+      render json: User.find(params[:id])
+    end
   end
 
   # POST /users
