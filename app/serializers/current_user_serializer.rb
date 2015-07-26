@@ -1,4 +1,4 @@
-# Adds to json of UserSerializer
+# Add to json of UserSerializer
 class CurrentUserSerializer < UserSerializer
   attributes :details
 
