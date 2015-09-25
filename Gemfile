@@ -1,17 +1,26 @@
 source 'https://rubygems.org'
 
+# Set required ruby version (better for heroku)
+ruby '2.2.2'
+
 gem 'rails', '4.2.3'
 
+# Minimize rails kitchen sink approach
 gem 'rails-api'
 
-gem 'spring', :group => :development
-
+# PostgreSQL database
 gem 'pg'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Helpo with JSON serialization
 gem 'active_model_serializers'
+
+# Use pry over irb for rails console
+group :development do
+  gem 'pry-rails'
+end
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
