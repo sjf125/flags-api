@@ -1,8 +1,8 @@
+#
 class BooksController < OpenReadController
-  before_action :set_book, only: [:show, :update, :destroy]
+  before_action :set_book, only: [:update, :destroy]
 
   # GET /books
-  # GET /books.json
   def index
     @books = Book.all
 
@@ -10,15 +10,15 @@ class BooksController < OpenReadController
   end
 
   # GET /books/1
-  # GET /books/1.json
   def show
+    @book = Book.find(params[:id])
+
     render json: @book
   end
 
   # POST /books
-  # POST /books.json
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.new(book_params)
 
     if @book.save
       render json: @book, status: :created, location: @book
@@ -27,11 +27,8 @@ class BooksController < OpenReadController
     end
   end
 
-  # PATCH/PUT /books/1
-  # PATCH/PUT /books/1.json
+  # PATCH /books/1
   def update
-    @book = Book.find(params[:id])
-
     if @book.update(book_params)
       head :no_content
     else
@@ -40,7 +37,6 @@ class BooksController < OpenReadController
   end
 
   # DELETE /books/1
-  # DELETE /books/1.json
   def destroy
     @book.destroy
 
@@ -48,7 +44,7 @@ class BooksController < OpenReadController
   end
 
   def set_book
-    @book = Book.find(params[:id])
+    @book = current_user.books.find(params[:id])
   end
 
   def book_params

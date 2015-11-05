@@ -1,18 +1,18 @@
 # Allow READ_ACTIONS access without authentication
 class OpenReadController < ApplicationController
-  # for access to token_and_options method
-  TokenAuth = ActionController::HttpAuthentication::Token
+  # Allow unauthenticated access to these actions
   READ_ACTIONS = [:index, :show]
   skip_before_action :authenticate, only: READ_ACTIONS
+
+  # but set current_user if a token is present
   before_action :set_current_user, only: READ_ACTIONS
-
-  private
-
-  # set current_user if unset and token present
   def set_current_user
-    return if current_user
-    tok_opts = TokenAuth.token_and_options(request)
-    @current_user =
-      User.find_by(token: tok_opts.first) if tok_opts
+    # for access to authenticate method
+    t = ActionController::HttpAuthentication::Token
+    @current_user = t.authenticate(self) do |token, _opts|
+      User.find_by(token: token)
+    end
   end
+
+  private :set_current_user
 end
