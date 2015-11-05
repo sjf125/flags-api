@@ -1,0 +1,10 @@
+#!/bin/bash
+# a place for editing curl commands
+
+curl --include --request POST --header "Content-Type: application/json" -d '{
+  "credentials": {
+    "email": "an@example.email",
+    "password": "an example password",
+    "password_confirmation": "an example password"
+  }
+}' http://localhost:3000/register

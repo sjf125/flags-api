@@ -43,13 +43,13 @@ curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http
 ## List
 
 ```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
+curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/books
 ```
 
 **OR**
 
 ```
-curl http://localhost:3000/users
+curl http://localhost:3000/books
 ```
 
 ## Create
