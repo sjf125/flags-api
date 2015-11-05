@@ -1,28 +1,64 @@
-== README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# User authentication
 
-Things you may want to cover:
+## Register
 
-* Ruby version
+```
+curl --include --request POST --header "Content-Type: application/json" -d '{
+  "credentials": {
+    "email": "an@example.email",
+    "password": "an example password",
+    "password_confirmation": "an example password"
+  }
+}' http://localhost:3000/register
+```
 
-* System dependencies
+## Login
 
-* Configuration
+```
+curl --request POST --header "Content-Type: application/json" -d '{
+  "credentials": {
+    "email": "an@example.email",
+    "password": "an example password"
+  }
+}' http://localhost:3000/login
+```
 
-* Database creation
+## Logout
 
-* Database initialization
+```
+curl --request DELETE --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/logout/1
+```
 
-* How to run the test suite
+# Users
 
-* Services (job queues, cache servers, search engines, etc.)
+## List
 
-* Deployment instructions
+```
+curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
+```
 
-* ...
+# Books
 
+## List
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+```
+curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
+```
+
+**OR**
+
+```
+curl http://localhost:3000/users
+```
+
+## Create
+
+```
+curl --request POST --header "Authorization: Token token=be249dc0231396806f24c953cafae03a" --header "Content-Type: application/json" -d '{
+  "book": {
+    "title":"The Hold",
+    "isbn":"abc123def456"
+  }
+}'  http://localhost:3000/books
+```
