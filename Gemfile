@@ -15,7 +15,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'pry-rails'
+  gem 'pry-rails', '~> 0.3.4'
 end
 
 group :test do

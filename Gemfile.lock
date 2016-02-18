@@ -150,7 +150,7 @@ DEPENDENCIES
   pg
   pry (~> 0.10)
   pry-byebug (~> 3.3.0)
-  pry-rails
+  pry-rails (~> 0.3.4)
   rack-cors
   rails (~> 4.2.5)
   rails-api!
