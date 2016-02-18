@@ -16,6 +16,7 @@ end
 
 group :development do
   gem 'pry-rails', '~> 0.3.4'
+  gem 'spring', '~> 1.6.3'
 end
 
 group :test do
