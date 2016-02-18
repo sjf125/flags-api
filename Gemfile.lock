@@ -126,6 +126,14 @@ GEM
     rspec-mocks (3.4.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
+    rspec-rails (3.4.2)
+      actionpack (>= 3.0, < 4.3)
+      activesupport (>= 3.0, < 4.3)
+      railties (>= 3.0, < 4.3)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+      rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
     slop (3.6.0)
     spring (1.6.3)
@@ -155,7 +163,8 @@ DEPENDENCIES
   rack-cors
   rails (~> 4.2.5)
   rails-api!
-  rspec (~> 3.3)
+  rspec (~> 3.4.0)
+  rspec-rails (~> 3.4.2)
   spring (~> 1.6.3)
 
 BUNDLED WITH
