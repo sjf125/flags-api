@@ -1,28 +1,23 @@
-# Look for ruby gems here
 source 'https://rubygems.org'
+ruby '2.2.4'
 
-# Set required ruby version (for heroku)
-ruby '2.2.3'
-
-gem 'rails', '4.2.4'
-
-# Reduce rails kitchen sink approach
-gem 'rails-api'
-
-# Cross-Origin Resource Sharing
+gem 'rails', '~> 4.2.5'
+gem 'rails-api', git: 'git@github.com:rails-api/rails-api.git'
+gem 'active_model_serializers', git: 'git@github.com:rails-api/active_model_serializers.git'
 gem 'rack-cors', require: 'rack/cors'
-
-# Use PostgreSQL database
 gem 'pg'
-
-# Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# Help with JSON serialization
-gem 'active_model_serializers'
+group :development, :test do
+  gem 'pry', '~> 0.10'
+  gem 'byebug', '~> 8.0'
+  gem 'pry-byebug', '~> 3.3.0'
+end
 
 group :development do
-  # Use pry over irb for rails console
   gem 'pry-rails'
-  gem 'byebug'
+end
+
+group :test do
+  gem 'rspec', '~> 3.3'
 end
