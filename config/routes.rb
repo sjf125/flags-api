@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  post '/register' => 'auth#register'
-  # patch '/confirm' => 'auth#confirm'
-  post '/login' => 'auth#login'
-  delete '/logout/:id' => 'auth#logout'
-
-  resources :users, except: [:new, :edit]
-
-  resources :books, except: [:new, :edit]
+  post '/sign-up' => 'users#signup'
+  post '/sign-in' => 'users#signin'
+  delete '/sign-out/:id' => 'users#signout'
+  patch '/change-password/:id' => 'users#changepw'
+  resources :users, only: [:index, :show]
 end

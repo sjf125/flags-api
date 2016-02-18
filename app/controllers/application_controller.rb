@@ -1,38 +1,20 @@
 #
-class ApplicationController < ActionController::API
-  # Defaults for API requests
-  before_action :api_request_settings
-  def api_request_settings
+class ApplicationController < ActionController::Base
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
+  skip_before_action :verify_authenticity_token, if: :json_request?
+  # force_ssl if: :ssl_configured?
+
+  protected
+
+  def ssl_configured?
+    false && !Rails.env.development?
+  end
+
+  def json_request?
+    # use if more than json returned
+    # request.format.json?
     request.format = :json
   end
-
-  # Use Token Authentication
-  include ActionController::HttpAuthentication::Token::ControllerMethods
-  before_action :authenticate
-  def authenticate
-    @current_user = authenticate_or_request_with_http_token do |token, _opts|
-      User.find_by token: token
-    end
-  end
-  # Controllers can use this to authorize actions
-  attr_reader :current_user
-
-  # Require SSL for deployed applications
-  force_ssl if: :ssl_configured?
-  def ssl_configured?
-    !Rails.env.development?
-  end
-
-  # Use enhanced JSON serialization
-  include ActionController::Serialization
-
-  # return 404 for failed search by id
-  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-  def record_not_found
-    render json: { message: 'Not Found' }, status: :not_found
-  end
-
-  # Restrict visibility of these methods
-  private :authenticate, :current_user, :record_not_found
-  private :ssl_configured?, :api_request_settings
 end

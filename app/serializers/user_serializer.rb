@@ -1,8 +1,9 @@
 #
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :current_user
+  attributes :id, :email # , :can_edit
 
-  def current_user
-    scope == object
-  end
+  # def can_edit
+  #   # defaults to current user which may be nil
+  #   scope ? scope == object : false
+  # end
 end
