@@ -5,8 +5,8 @@ namespace :db do
   end
 
   unless Rails.env == "production"
-    desc "Re-populate the development database"
-    task populate: %w(environment db:drop db:create db:migrate db:seed db:examples) do
+    desc "Drop and setup the development database with examples"
+    task nuke_pave: %w(environment db:drop db:create db:migrate db:seed db:examples) do
       puts "Nuke and pave of #{Rails.env} complete."
     end
   end

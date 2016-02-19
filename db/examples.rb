@@ -2,7 +2,7 @@
 # your app during development.
 #
 # The data can then be loaded with the rake db:examples (or created alongside
-# the db with db:populate).
+# the db with db:nuke_pave).
 #
 # Examples:
 #
