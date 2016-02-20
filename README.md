@@ -42,13 +42,14 @@ User authentication is built-in.
 Developers should run these often!
 
 -   `rake routes` lists the endpoints available in your API.
-<!-- TODO -   `rake nag` checks your code style. -->
-<!-- TODO -   `rake lint` checks your code for syntax errors. -->
 -   `rake spec` runs automated tests.
 -   `rails console` opens a REPL that pre-loads the API.
 -   `rails db` opens your database client and loads the correct database.
 -   `rails server` starts the API.
 -   `scripts/*.sh` run various `curl` commands to test the API. See below.
+
+<!-- TODO -   `rake nag` checks your code style. -->
+<!-- TODO -   `rake lint` checks your code for syntax errors. -->
 
 ## API
 
