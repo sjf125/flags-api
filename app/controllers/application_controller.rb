@@ -1,6 +1,6 @@
 #
 class ApplicationController < ActionController::API
-  # Default to wants JSON  for API requests
+  # Force to wants JSON for API
   before_action :api_request_settings
   def api_request_settings
     request.format = :json
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::API
   # call from actions to get authenticated user (or nil)
   attr_reader :current_user
 
-  # call from unauthenticated actions that want current_user (possibly nil)
+  # call from unauthenticated actions that want current_user if available
   def set_current_user
     # for access to authenticate method
     t = ActionController::HttpAuthentication::Token
