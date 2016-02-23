@@ -8,6 +8,10 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'pg'
 gem 'bcrypt', '~> 3.1.7'
 
+group :production do
+  gem 'rails_12factor', '~> 0.0.3'
+end
+
 group :development, :test do
   gem 'pry', '~> 0.10'
   gem 'byebug', '~> 8.0'
