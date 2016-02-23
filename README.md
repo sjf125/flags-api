@@ -8,6 +8,8 @@ At the beginning of each cohort, update the versions in [`Gemfile`](Gemfile).
 
 ## Dependencies
 
+Install with `bundle install`.
+
 -   [`rails-api`](https://github.com/rails-api/rails-api)
 -   [`rails`](https://github.com/rails/rails)
 -   [`active_model_serializers`](https://github.com/rails-api/active_model_serializers)
