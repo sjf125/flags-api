@@ -22,7 +22,7 @@ version of Rails 4, as well as track `master` branches for `rails-api` and
 
 ## Installation
 
-1.  [Download](archive/master.zip) this template.
+1.  [Download](../../archive/master.zip) this template.
 1.  Unzip and rename the template directory.
 1.  Empty [`README.md`](README.md) and fill with your own content.
 1.  Move into the new project and `git init`.
