@@ -24,6 +24,12 @@ version of Rails 4, as well as track `master` branches for `rails-api` and
 1.  Unzip and rename the template directory.
 1.  Move into the new project and `git init`.
 1.  Install dependencies with `bundle install`.
+1.  Rename your app module in `config/application.rb` (change
+    `RailsApiTemplate`).
+1.  Rename your project database in `config/database.yml` (change
+    `'rails-api-template'`).
+1.  Make new `development` and `test` secrets for `config/secrets.yml`. Add and
+    commit this file.
 1.  Setup your database with `bin/rake db:nuke_pave` or `bundle exec rake
     db:nuke_pave`.
 1.  Run the API server with `bin/rails server` or `bundle exec rails server`.
