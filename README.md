@@ -72,12 +72,12 @@ tests in RSpec to test your API.
 
 ### Authentication
 
-| Verb   | URI Pattern        | Controller#Action |
-|--------|--------------------|-------------------|
-| POST   | `/sign-up`         | `users#signup`    |
-| POST   | `/sign-in`         | `users#signin`    |
-| DELETE | `/sign-out/:id`    | `users#signout`   |
-| PATCH  | `/change-password` | `users#changepw`  |
+| Verb   | URI Pattern            | Controller#Action |
+|--------|------------------------|-------------------|
+| POST   | `/sign-up`             | `users#signup`    |
+| POST   | `/sign-in`             | `users#signin`    |
+| DELETE | `/sign-out/:id`        | `users#signout`   |
+| PATCH  | `/change-password/:id` | `users#changepw`  |
 
 #### POST /sign-up
 
@@ -163,7 +163,7 @@ Response:
 HTTP/1.1 204 No Content
 ```
 
-#### PATCH /change-password
+#### PATCH /change-password/:id
 
 Request:
 
