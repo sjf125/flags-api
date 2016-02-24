@@ -76,8 +76,8 @@ tests in RSpec to test your API.
 |--------|------------------------|-------------------|
 | POST   | `/sign-up`             | `users#signup`    |
 | POST   | `/sign-in`             | `users#signin`    |
-| DELETE | `/sign-out/:id`        | `users#signout`   |
 | PATCH  | `/change-password/:id` | `users#changepw`  |
+| DELETE | `/sign-out/:id`        | `users#signout`   |
 
 #### POST /sign-up
 
@@ -106,8 +106,10 @@ HTTP/1.1 201 Created
 Content-Type: application/json; charset=utf-8
 
 {
-  "id": 1,
-  "email": "an@example.email"
+  "user": {
+    "id": 1,
+    "email": "an@example.email"
+  }
 }
 ```
 
@@ -128,7 +130,7 @@ curl --include --request POST http://localhost:3000/sign-up \
 ```
 
 ```sh
-scripts/sign-up.sh
+scripts/sign-in.sh
 ```
 
 Response:
@@ -138,29 +140,12 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
 {
-  "id": 1,
-  "email": "an@example.email",
-  "token": "46a33f9e6d9637d4b99665d0d3e93ed1"
+  "user": {
+    "id": 1,
+    "email": "an@example.email",
+    "token": "33ad6372f795694b333ec5f329ebeaaa"
+  }
 }
-```
-
-#### DELETE /sign-out/:id
-
-Request:
-
-```sh
-curl --include --request DELETE http://localhost:3000/sign-out/$ID \
-  --header "Authorization: Token token=$TOKEN"
-```
-
-```sh
-ID=1 TOKEN=46a33f9e6d9637d4b99665d0d3e93ed1 scripts/sign-out.sh
-```
-
-Response:
-
-```md
-HTTP/1.1 204 No Content
 ```
 
 #### PATCH /change-password/:id
@@ -180,7 +165,26 @@ curl --include --request PATCH http://localhost:3000/change-password/$ID \
 ```
 
 ```sh
-ID=1 TOKEN=46a33f9e6d9637d4b99665d0d3e93ed1 scripts/change-password.sh
+ID=1 TOKEN=33ad6372f795694b333ec5f329ebeaaa scripts/change-password.sh
+```
+
+Response:
+
+```md
+HTTP/1.1 204 No Content
+```
+
+#### DELETE /sign-out/:id
+
+Request:
+
+```sh
+curl --include --request DELETE http://localhost:3000/sign-out/$ID \
+  --header "Authorization: Token token=$TOKEN"
+```
+
+```sh
+ID=1 TOKEN=33ad6372f795694b333ec5f329ebeaaa scripts/sign-out.sh
 ```
 
 Response:
@@ -206,7 +210,7 @@ curl --include --request GET http://localhost:3000/users \
 ```
 
 ```sh
-TOKEN=46a33f9e6d9637d4b99665d0d3e93ed1 scripts/users.sh
+TOKEN=33ad6372f795694b333ec5f329ebeaaa scripts/users.sh
 ```
 
 Response:
@@ -215,16 +219,18 @@ Response:
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
-[
-  {
-    "id": 2,
-    "email": "another@example.email"
-  },
-  {
-    "id": 1,
-    "email": "an@example.email"
-  }
-]
+{
+  "users": [
+    {
+      "id": 2,
+      "email": "another@example.email"
+    },
+    {
+      "id": 1,
+      "email": "an@example.email"
+    }
+  ]
+}
 ```
 
 #### GET /users/:id
@@ -237,7 +243,7 @@ curl --include --request GET http://localhost:3000/users/$ID \
 ```
 
 ```sh
-ID=2 TOKEN=46a33f9e6d9637d4b99665d0d3e93ed1 scripts/user.sh
+ID=2 TOKEN=33ad6372f795694b333ec5f329ebeaaa scripts/user.sh
 ```
 
 Response:
@@ -247,8 +253,10 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
 {
-  "id": 2,
-  "email": "another@example.email"
+  "user": {
+    "id": 2,
+    "email": "another@example.email"
+  }
 }
 ```
 
