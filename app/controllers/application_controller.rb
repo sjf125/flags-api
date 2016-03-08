@@ -6,12 +6,17 @@ class ApplicationController < ActionController::API
     request.format = :json
   end
 
+  def token(signed_token)
+    Rails.application.message_verifier(:signed_token).verify(signed_token)
+  end
+
   # Use Token Authentication
   include ActionController::HttpAuthentication::Token::ControllerMethods
   def authenticate
-    @current_user = authenticate_or_request_with_http_token do |token, _opts|
-      User.find_by token: token
-    end
+    @current_user =
+      authenticate_or_request_with_http_token do |signed_token, _opts|
+        User.find_by token: token(signed_token)
+      end
   end
 
   # call from actions to get authenticated user (or nil)
@@ -21,8 +26,8 @@ class ApplicationController < ActionController::API
   def set_current_user
     # for access to authenticate method
     t = ActionController::HttpAuthentication::Token
-    @current_user = t.authenticate(self) do |token, _opts|
-      User.find_by(token: token)
+    @current_user = t.authenticate(self) do |signed_token, _opts|
+      User.find_by token: token(signed_token)
     end
   end
 
@@ -43,5 +48,5 @@ class ApplicationController < ActionController::API
 
   # Restrict visibility of these methods
   private :authenticate, :current_user, :set_current_user, :record_not_found
-  private :ssl_configured?, :api_request_settings
+  private :ssl_configured?, :api_request_settings, :token
 end
