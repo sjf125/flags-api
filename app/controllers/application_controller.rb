@@ -6,9 +6,6 @@ class ApplicationController < ActionController::API
     request.format = :json
   end
 
-  def token(signed_token)
-  end
-
   AUTH_BLOCK = proc do |signed_token, _opts|
     token = begin
       Rails.application.message_verifier(:signed_token).verify(signed_token)
@@ -52,5 +49,5 @@ class ApplicationController < ActionController::API
 
   # Restrict visibility of these methods
   private :authenticate, :current_user, :set_current_user, :record_not_found
-  private :ssl_configured?, :api_request_settings, :token
+  private :ssl_configured?, :api_request_settings
 end
