@@ -10,8 +10,11 @@ class ApplicationController < ActionController::API
   end
 
   AUTH_BLOCK = proc do |signed_token, _opts|
-    token =
+    token = begin
       Rails.application.message_verifier(:signed_token).verify(signed_token)
+    rescue ActiveSupport::MessageVerifier::InvalidSignature
+      false
+    end
     User.find_by token: token
   end
 
