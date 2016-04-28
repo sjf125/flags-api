@@ -1,4 +1,4 @@
-location,flag,level,imgurl
+location,name,level,imgurl
 Asia,Afghanistan,country,'https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Afghanistan.svg'
 Europe,Albania,country,'https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg'
 Africa,Algeria,country,'https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg'

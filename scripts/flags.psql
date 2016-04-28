@@ -1,0 +1,1 @@
+\copy flags(location,name,level,imgurl) from 'data/flags.csv' with(header true, format csv)
