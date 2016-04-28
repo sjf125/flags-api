@@ -54,6 +54,6 @@ class FlagsController < ApplicationController
     end
 
     def flag_params
-      params.require(:flag).permit(:country, :continent, :imgurl)
+      params.require(:flag).permit(:location, :name, :level, :imgurl)
     end
 end

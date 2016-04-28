@@ -1,3 +1,3 @@
 class FlagSerializer < ActiveModel::Serializer
-  attributes :id, :country, :continent, :imgurl
+  attributes :id, :location, :name, :level, :imgurl
 end
