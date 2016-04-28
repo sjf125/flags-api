@@ -1,4 +1,4 @@
-class RatingsController < ProtectedController
+class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :update, :destroy]
 
   # GET /ratings
