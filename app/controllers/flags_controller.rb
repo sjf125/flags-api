@@ -33,7 +33,7 @@ class FlagsController < ApplicationController
     @flag = Flag.find(params[:id])
 
     if @flag.update(flag_params)
-      head :no_content
+      render json: @flag, status: :created
     else
       render json: @flag.errors, status: :unprocessable_entity
     end

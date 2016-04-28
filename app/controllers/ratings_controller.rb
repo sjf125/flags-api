@@ -33,7 +33,7 @@ class RatingsController < ApplicationController
     @rating = Rating.find(params[:id])
 
     if @rating.update(rating_params)
-      head :no_content
+      render json: @rating, status: :created
     else
       render json: @rating.errors, status: :unprocessable_entity
     end

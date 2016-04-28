@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     if @comment.update(comment_params)
-      head :no_content
+      render json: @comment, status: :created
     else
       render json: @comment.errors, status: :unprocessable_entity
     end
