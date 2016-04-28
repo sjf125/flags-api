@@ -1,4 +1,4 @@
-class FlagsController < ApplicationController
+class FlagsController < ProtectedController
   before_action :set_flag, only: [:show, :update, :destroy]
 
   # GET /flags

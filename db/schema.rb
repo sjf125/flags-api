@@ -42,12 +42,12 @@ ActiveRecord::Schema.define(version: 20160427222231) do
     t.string   "name"
     t.string   "level"
     t.string   "imgurl"
-    # t.datetime "created_at", null: false
-    # t.datetime "updated_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer  "rating"
+    t.integer  "score"
     t.integer  "user_id"
     t.integer  "flag_id"
     t.datetime "created_at", null: false
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20160427222231) do
   end
 
   add_index "ratings", ["flag_id"], name: "index_ratings_on_flag_id", using: :btree
-  add_index "ratings", ["rating"], name: "index_ratings_on_rating", using: :btree
+  add_index "ratings", ["score"], name: "index_ratings_on_score", using: :btree
   add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|

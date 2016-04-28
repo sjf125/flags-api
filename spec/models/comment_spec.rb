@@ -4,6 +4,7 @@ RSpec.describe Comment do
   def flag_assoc
     described_class.reflect_on_association(:flag)
   end
+
   def user_assoc
     described_class.reflect_on_association(:user)
   end

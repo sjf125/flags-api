@@ -1,4 +1,22 @@
+require 'csv'
+
 namespace :db do
+  namespace :populate do
+    desc 'Fill the database with example data'
+    task all: [:flags]
+
+    desc 'Fill the people table with example data'
+    task flags: :environment do
+      Flag.transaction do
+        CSV.foreach(Rails.root + 'data/flags.csv',
+                    headers: true) do |flag_row|
+          flag = flag_row.to_hash
+          next if Flag.exists? flag
+          Flag.create!(flag)
+        end
+      end
+    end
+  end
   desc 'Load example data from db/examples.rb'
   task examples: :environment do
     require_relative '../../db/examples'
