@@ -1,5 +1,5 @@
 class FlagsController < ApplicationController
-  before_action :set_flag, only: [:show, :update, :destroy]
+  before_action :set_flag, only: [:show]
 
   # GET /flags
   # GET /flags.json
@@ -17,35 +17,35 @@ class FlagsController < ApplicationController
 
   # POST /flags
   # POST /flags.json
-  def create
-    @flag = Flag.new(flag_params)
-
-    if @flag.save
-      render json: @flag, status: :created, location: @flag
-    else
-      render json: @flag.errors, status: :unprocessable_entity
-    end
-  end
+  # def create
+  #   @flag = Flag.new(flag_params)
+  #
+  #   if @flag.save
+  #     render json: @flag, status: :created, location: @flag
+  #   else
+  #     render json: @flag.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # PATCH/PUT /flags/1
   # PATCH/PUT /flags/1.json
-  def update
-    @flag = Flag.find(params[:id])
-
-    if @flag.update(flag_params)
-      render json: @flag, status: :created
-    else
-      render json: @flag.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   @flag = Flag.find(params[:id])
+  #
+  #   if @flag.update(flag_params)
+  #     render json: @flag, status: :created
+  #   else
+  #     render json: @flag.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /flags/1
   # DELETE /flags/1.json
-  def destroy
-    @flag.destroy
-
-    head :no_content
-  end
+  # def destroy
+  #   @flag.destroy
+  #
+  #   head :no_content
+  # end
 
   private
 

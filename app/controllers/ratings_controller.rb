@@ -1,5 +1,6 @@
 class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :update, :destroy]
+  skip_before_action :authenticate, only: [:index, :show]
 
   # GET /ratings
   # GET /ratings.json
@@ -49,11 +50,11 @@ class RatingsController < ApplicationController
 
   private
 
-    def set_rating
-      @rating = Rating.find(params[:id])
-    end
+  def set_rating
+    @rating = Rating.find(params[:id])
+  end
 
-    def rating_params
-      params.require(:rating).permit(:rating, :user_id, :flag_id)
-    end
+  def rating_params
+    params.require(:rating).permit(:score, :user_id, :flag_id)
+  end
 end
