@@ -1,4 +1,4 @@
-class RatingsController < ApplicationController
+class RatingsController < OpenReadController
   before_action :set_rating, only: [:show, :update, :destroy]
   skip_before_action :authenticate, only: [:index, :show]
 

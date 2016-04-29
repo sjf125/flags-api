@@ -1,4 +1,4 @@
-class FlagsController < ApplicationController
+class FlagsController < OpenReadController
   before_action :set_flag, only: [:show]
 
   # GET /flags

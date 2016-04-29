@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class CommentsController < OpenReadController
   before_action :set_comment, only: [:show, :update, :destroy]
   # before_action :set_flag, only: [:index, :create]
   # before_action :set_user, only: [:index, :create]
