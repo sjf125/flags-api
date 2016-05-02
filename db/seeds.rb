@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Flag.transaction do
+  CSV.foreach(Rails.root + 'data/flags.csv',
+              headers: true) do |flag_row|
+    flag = flag_row.to_hash
+    next if Flag.exists? flag
+    Flag.create!(flag)
+  end
+end
