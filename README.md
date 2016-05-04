@@ -2,11 +2,11 @@
 
 An api for tracking and routing flags, comments, and ratings.
 
-See the website here: `http://sjf125.github.io/flags/`
+See the website here: (http://sjf125.github.io/flags/)
 
-Deployed on Heroku here: `https://flags.herokuapp.com/`
+Deployed on Heroku here: (https://flags.herokuapp.com/)
 
-Link to front-end repository: `https://github.com/sjf125/flags`
+Link to front-end repository: (https://github.com/sjf125/flags)
 
 ## API end-points/routes
 
