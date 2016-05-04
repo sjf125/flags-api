@@ -25,28 +25,6 @@ An api for tracking and routing flags, comments, and ratings.
 | GET    | `/users`               | `users#index`     |
 | GET    | `/users/:id`           | `users#show`      |
 
--   Prefix Verb   URI Pattern                    Controller#Action
--    ratings GET    /ratings(.:format)             ratings#index
--            POST   /ratings(.:format)             ratings#create
--     rating GET    /ratings/:id(.:format)         ratings#show
--            PATCH  /ratings/:id(.:format)         ratings#update
--            PUT    /ratings/:id(.:format)         ratings#update
--            DELETE /ratings/:id(.:format)         ratings#destroy
--   comments GET    /comments(.:format)            comments#index
--            POST   /comments(.:format)            comments#create
--    comment GET    /comments/:id(.:format)        comments#show
--            PATCH  /comments/:id(.:format)        comments#update
--            PUT    /comments/:id(.:format)        comments#update
--            DELETE /comments/:id(.:format)        comments#destroy
--      flags GET    /flags(.:format)               flags#index
--       flag GET    /flags/:id(.:format)           flags#show
--    sign_up POST   /sign-up(.:format)             users#signup
--    sign_in POST   /sign-in(.:format)             users#signin
--            DELETE /sign-out/:id(.:format)        users#signout
--            PATCH  /change-password/:id(.:format) users#changepw
--      users GET    /users(.:format)               users#index
--       user GET    /users/:id(.:format)           users#show
-
 All data returned from API actions is formatted as JSON.
 
 ---
